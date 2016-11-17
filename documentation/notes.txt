@@ -1,0 +1,47 @@
+Notes
+=====
+
+The Application has been developed using Laravel 5.1 (PHP framework)
+
+To run:
+1)Load the cloudflare_test.sql file onto the MySQL server from the documentation/db directory
+2)Set the database username and password in the .env file in the root directory of the project
+3)Run the following in the command line
+>cd <path of the project directory>
+>composer install
+>php artisan serve
+4)You can use POSTMAN for Chrome browser/HTTPRequester for Firefox browser for testing the endpoints
+
+Configuration Notes:
+- PHP and Composer should be added to the PATH variable.
+- MySQL drivers for PHP should be installed.
+
+In the browser open the endpoints as stated below:
+
+REST API Endpoints:
+--------------------
+[Customers]
+http://localhost:8000/api/customers : GET - List all Customers
+http://localhost:8000/api/customers/{customerId} : GET - Display a particular Customer object
+http://localhost:8000/api/customers : POST - Insert New Customer, Send the data as json object in body
+http://localhost:8000/api/customers/{customerId} : PUT - Update Customer, Send the data as json object in body
+http://localhost:8000/api/customers/{customerId} : DELETE - Delete Customer
+
+[Certificates]
+http://localhost:8000/api/certificates : GET - List all Certificates
+http://localhost:8000/api/certificates/{certificateId} : GET - Display a particular Certificate object
+http://localhost:8000/api/certificates : POST - Insert New Certificate, Send the data as json object in body
+http://localhost:8000/api/certificates/{certificateId} : PUT - Update Certificate, Send the data as json object in body
+http://localhost:8000/api/certificates/{certificateId} : DELETE - Delete Certificate
+
+http://localhost:8000/api/customers/{customerId}/certificates : GET - List all Certificates for a particular customer
+http://localhost:8000/api/customers/{customerId}/certificates/active : GET - List all Active Certificates for a particular customer
+http://localhost:8000/api/certificates/{certificateId}/activate : PUT - Activate a certificate
+http://localhost:8000/api/certificates/{certificateId}/deactivate : PUT - Deactivate a certificate
+
+-The endpoints return paginated data where it is supposed to return a list of records to be thoughtful of the fact that it may return millions of records.
+
+
+
+
+
