@@ -1,27 +1,64 @@
-## Laravel PHP Framework
+Programming Exercise
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This exercise should be completed in 4 hours or less. The solution must be runnable, and can be written in any programming language.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+The challenge is to build a HTTP-based RESTful API for managing Customers and their Certificates. Be thoughtful about the fact that the system must eventually support millions of certificates.
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+A Customer:
 
-## Contributing
+    Has a name
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+    Has an email address
 
-## Security Vulnerabilities
+    May have zero to many Certificates
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-### License
+A Certificate:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+    Belongs to one and only one Customer
+
+    Can be either active or inactive
+
+    Has a private key
+
+    Has a certificate body
+
+
+Your solution must support:
+
+    Creating/Deleting Customers
+
+    Creating Certificates
+
+    Listing all of a Customer’s Active Certificates
+
+    Activating/Deactivating Certificates. If a certificate is either activated or de-activated, add the ability to notify an external system (via an HTTP post) about that fact.
+
+    Persistence (data must survive computer restarts)
+
+
+Shortcuts
+
+    No authentication is required - any unauthenticated client can call it
+
+    Transport/Serialization format is your choice, but the solution should be testable via curl
+
+    Anything left unspecified is left to your discretion.
+
+============================================================================
+
+1. Creating/Deleting Customers : Done using REST endpoint
+
+2. Creating Certificates : Done using REST endpoint
+
+3. Listing all of a Customer’s Active Certificates : Done using REST endpoint
+
+4. Activating/Deactivating Certificates. If a certificate is either activated or de-activated, add the ability to notify an external system (via an HTTP post) about that fact. : Done using REST endpoint + CURL POST
+
+5. Persistence (data must survive computer restarts) : All data is stored in a MySQL database.
+
+- The endpoints return paginated data where it is supposed to return a list of records to be thoughtful of the fact that it may return millions of records.
+
+More details available in documentation/ directory.
